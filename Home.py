@@ -39,7 +39,7 @@ def main():
     cols = st.columns(len(logos))
     for col, path in zip(cols, logos):
         img = Image.open(path)
-        col.image(img, use_column_width=True)
+        col.image(img, use_container_width=True)
 
 
 if __name__ == "__main__":
