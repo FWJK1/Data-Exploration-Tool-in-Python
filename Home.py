@@ -10,6 +10,7 @@ streamlit run Home.py
 """
 
 # Necessary imports
+from PIL import Image
 import streamlit as st
 from app_utils.streamlit_config import streamlit_config
 
@@ -27,6 +28,18 @@ def main():
     # Display a background photo for the page
     with open("main_page.css") as f:
         st.markdown(f"<style>{f.read()}<style>", unsafe_allow_html=True)
+
+
+    logos = [
+        "Images/center_rural_studies.png",
+        "Images/leahy_logo.png",
+        "Images/Picture1.png"
+    ]
+
+    cols = st.columns(len(logos))
+    for col, path in zip(cols, logos):
+        img = Image.open(path)
+        col.image(img, use_column_width=True)
 
 
 if __name__ == "__main__":
